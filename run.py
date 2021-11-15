@@ -23,7 +23,7 @@ def get_sales_data():
     print("Example: 10,20,30,40,50,60\n")
 
     data_str = input("Enter your data here: ")
-    print(data_str)
+    
 
     sales_data = data_str.split(",") # The split() method returns the broken up values as a list.
     # print(sales_data) Prints sales data separated by a comma with split() into terminal.
@@ -35,6 +35,7 @@ def validate_data(values):
     Riases ValueError if strings cannot be converted into int, or if there aren't exactly 6 values. 
     """
     try:
+        [int(value) for value in values] # converts the string inserted by user in sales_data variable into integers(whole numbers)
         if len(values) != 6:
             raise ValueError(
                 f"Exactly 6 values required, you provided {len(values)}"
