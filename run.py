@@ -18,16 +18,24 @@ def get_sales_data():
     """
     Get sales figures input from the user
     """
-    print("Please enter sales date from the last market.")
-    print("Data should be six numbers, separated by commas.")
-    print("Example: 10,20,30,40,50,60\n")
+    while True:
+        print("Please enter sales date from the last market.")
+        print("Data should be six numbers, separated by commas.")
+        print("Example: 10,20,30,40,50,60\n")
 
-    data_str = input("Enter your data here: ")
+        data_str = input("Enter your data here: ")
     
 
-    sales_data = data_str.split(",") # The split() method returns the broken up values as a list.
-    # print(sales_data) Prints sales data separated by a comma with split() into terminal.
-    validate_data(sales_data)
+        sales_data = data_str.split(",") # The split() method returns the broken up values as a list.
+        # print(sales_data) Prints sales data separated by a comma with split() into terminal.
+        
+        """
+        While loop above and if statement below + setting return False/True allow us to run the input again in case invalid values without need of restarting the program
+        This block of code will run unless the data are valid
+        """
+        if validate_data(sales_data):
+            print("Data is valid")
+            break
 
 def validate_data(values):
     """
@@ -42,5 +50,8 @@ def validate_data(values):
             )
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
+        return False
+    
+    return True
 
 get_sales_data()
