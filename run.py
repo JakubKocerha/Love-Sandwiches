@@ -2,6 +2,10 @@ import gspread
 from google.oauth2.service_account import Credentials
 from pprint import pprint
 
+"""
+Full functionality of the code you find in Love sandwiches challenge
+at the end of the Python essentials
+"""
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
